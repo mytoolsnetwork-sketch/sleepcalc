@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sleep Calculator — Find Your Perfect Bedtime</title>
+<meta name="description" content="Free sleep calculator. Find the best time to wake up or go to sleep based on 90-minute sleep cycles. Wake up refreshed every morning.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#0f1117;color:#fff;min-height:100vh}
+header{background:#1a1d27;border-bottom:1px solid #2a2d3a;padding:14px 24px;display:flex;align-items:center;gap:12px}
+header h1{font-size:20px;font-weight:500}
+header span{font-size:13px;color:#888;margin-left:auto}
+.container{max-width:800px;margin:0 auto;padding:2rem 1rem}
+.hero{text-align:center;margin-bottom:2.5rem}
+.hero h2{font-size:28px;font-weight:500;margin-bottom:8px}
+.hero p{font-size:15px;color:#888;line-height:1.6}
+.tabs{display:flex;gap:4px;background:#1a1d27;padding:4px;border-radius:12px;margin-bottom:2rem}
+.tab{flex:1;padding:10px;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;background:transparent;color:#888;transition:all 0.2s}
+.tab.active{background:#7c3aed;color:#fff}
+.card{background:#1a1d27;border-radius:16px;padding:1.5rem;margin-bottom:1.5rem}
+.card-title{font-size:14px;color:#888;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.05em}
+.time-input{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:1.5rem}
+.time-input input{background:#0f1117;border:1px solid #2a2d3a;color:#fff;font-size:32px;font-weight:500;text-align:center;width:90px;padding:12px;border-radius:10px}
+.time-input span{font-size:32px;font-weight:300;color:#444}
+.calc-btn{width:100%;padding:14px;font-size:16px;font-weight:500;border-radius:10px;background:#7c3aed;border:none;cursor:pointer;color:#fff;transition:background 0.15s;margin-bottom:1.5rem}
+.calc-btn:hover{background:#6d28d9}
+.results{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.result-card{background:#0f1117;border-radius:12px;padding:14px;text-align:center;border:1px solid #2a2d3a;cursor:pointer;transition:border-color 0.2s}
+.result-card:hover{border-color:#7c3aed}
+.result-card .cycles{font-size:11px;color:#888;margin-bottom:4px}
+.result-card .time{font-size:24px;font-weight:500;color:#a78bfa}
+.result-card .quality{font-size:11px;margin-top:4px}
+.quality-best{color:#10b981}
+.quality-good{color:#f59e0b}
+.quality-ok{color:#888}
+.info-box{background:#0f1117;border-radius:12px;padding:1rem 1.25rem;border:1px solid #2a2d3a;margin-top:1rem}
+.info-box h3{font-size:14px;font-weight:500;margin-bottom:8px;color:#a78bfa}
+.info-box p{font-size:13px;color:#888;line-height:1.6}
+.seo-text{font-size:14px;color:#666;line-height:1.7;margin-top:2rem}
+footer{text-align:center;padding:2rem;font-size:12px;color:#444;border-top:1px solid #1a1d27;margin-top:2rem}
+</style>
+</head>
+<body>
+<header>
+  <h1>&#128564; Sleep Calculator</h1>
+  <span>Wake up refreshed</span>
+</header>
+
+<div class="container">
+  <div class="hero">
+    <h2>Find Your Perfect Sleep Time</h2>
+    <p>Based on 90-minute sleep cycles — wake up feeling refreshed, not groggy.</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('wakeup')">I want to wake up at...</button>
+    <button class="tab" onclick="switchTab('bedtime')">I want to go to bed at...</button>
+  </div>
+
+  <div class="card" id="wakeup-card">
+    <div class="card-title">Wake up time</div>
+    <div class="time-input">
+      <input type="number" id="wu-hour" min="0" max="23" value="7" placeholder="07"/>
+      <span>:</span>
+      <input type="number" id="wu-min" min="0" max="59" value="00" placeholder="00"/>
+    </div>
+    <button class="calc-btn" onclick="calcBedtime()">Calculate bedtime &#8594;</button>
+    <div class="card-title">Go to sleep at...</div>
+    <div class="results" id="bedtime-results"></div>
+  </div>
+
+  <div class="card" id="bedtime-card" style="display:none">
+    <div class="card-title">Bedtime</div>
+    <div class="time-input">
+      <input type="number" id="bt-hour" min="0" max="23" value="22" placeholder="22"/>
+      <span>:</span>
+      <input type="number" id="bt-min" min="0" max="59" value="30" placeholder="30"/>
+    </div>
+    <button class="calc-btn" onclick="calcWakeup()">Calculate wake up time &#8594;</button>
+    <div class="card-title">Wake up at...</div>
+    <div class="results" id="wakeup-results"></div>
+  </div>
+
+  <div class="info-box">
+    <h3>&#127775; How it works</h3>
+    <p>Sleep happens in 90-minute cycles. Each cycle includes light sleep, deep sleep, and REM sleep. Waking up at the end of a cycle means you wake naturally — feeling alert and rested. Waking mid-cycle causes that groggy feeling. We also add 14 minutes for the average time to fall asleep.</p>
+  </div>
+
+  <div class="seo-text">
+    <p>The Sleep Calculator helps you find the best time to go to bed or set your alarm, based on 90-minute sleep cycles. Whether you need to wake up for work, school, or travel — enter your target time and we show you the ideal bedtimes or wake-up times to feel your best.</p>
+  </div>
+</div>
+
+<footer>&#169; 2026 SleepCalc.info &mdash; Free sleep cycle calculator</footer>
+
+<script>
+const CYCLE=90,FALLASLEEP=14;
+function fmt(h,m){return`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`}
+function addMin(h,m,mins){let t=h*60+m+mins;t=((t%1440)+1440)%1440;return[Math.floor(t/60),t%60]}
+function subMin(h,m,mins){return addMin(h,m,-mins)}
+function quality(cycles){if(cycles>=5)return['&#127775;&#127775;&#127775; Best',`quality-best`];if(cycles>=4)return['&#127775;&#127775; Good','quality-good'];return['&#127775; Okay','quality-ok']}
+
+function calcBedtime(){
+  const h=parseInt(document.getElementById('wu-hour').value)||7;
+  const m=parseInt(document.getElementById('wu-min').value)||0;
+  const el=document.getElementById('bedtime-results');
+  el.innerHTML='';
+  [6,5,4,3,2,1].forEach(cycles=>{
+    const mins=cycles*CYCLE+FALLASLEEP;
+    const[bh,bm]=subMin(h,m,mins);
+    const[q,cls]=quality(cycles);
+    el.innerHTML+=`<div class="result-card"><div class="cycles">${cycles} cycle${cycles>1?'s':''} · ${cycles*1.5}h</div><div class="time">${fmt(bh,bm)}</div><div class="quality ${cls}">${q}</div></div>`;
+  });
+}
+
+function calcWakeup(){
+  const h=parseInt(document.getElementById('bt-hour').value)||22;
+  const m=parseInt(document.getElementById('bt-min').value)||30;
+  const el=document.getElementById('wakeup-results');
+  el.innerHTML='';
+  [2,3,4,5,6].forEach(cycles=>{
+    const mins=cycles*CYCLE+FALLASLEEP;
+    const[wh,wm]=addMin(h,m,mins);
+    const[q,cls]=quality(cycles);
+    el.innerHTML+=`<div class="result-card"><div class="cycles">${cycles} cycle${cycles>1?'s':''} · ${cycles*1.5}h</div><div class="time">${fmt(wh,wm)}</div><div class="quality ${cls}">${q}</div></div>`;
+  });
+}
+
+function switchTab(tab){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('wakeup-card').style.display=tab==='wakeup'?'block':'none';
+  document.getElementById('bedtime-card').style.display=tab==='bedtime'?'block':'none';
+}
+
+calcBedtime();
+</script>
+</body>
+</html>
