@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://www.sleepcalc.info/bedtime-calculator.html" />
+  <title>Bedtime Calculator for Adults — What Time Should I Go to Sleep?</title>
+  <meta name="description" content="Find the perfect bedtime based on your wake-up time. Free bedtime calculator using 90-minute sleep cycles for adults.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,sans-serif;background:#0f1117;color:#fff;min-height:100vh}
+    header{background:#1a1d27;border-bottom:1px solid #2a2d3a;padding:14px 24px;display:flex;align-items:center;gap:12px}
+    header h1{font-size:20px;font-weight:500}
+    header a{color:#888;text-decoration:none;font-size:14px;margin-left:auto}
+    header a:hover{color:#fff}
+    .container{max-width:800px;margin:0 auto;padding:2rem 1rem}
+    .hero{text-align:center;margin-bottom:2.5rem}
+    .hero h2{font-size:28px;font-weight:500;margin-bottom:8px}
+    .hero p{font-size:15px;color:#888;line-height:1.6}
+    .card{background:#1a1d27;border-radius:12px;padding:2rem;margin-bottom:2rem}
+    label{font-size:14px;color:#aaa;display:block;margin-bottom:8px}
+    input[type="time"]{width:100%;padding:12px;background:#0f1117;border:1px solid #2a2d3a;border-radius:8px;color:#fff;font-size:16px;margin-bottom:1.5rem}
+    button{width:100%;padding:14px;background:#4f8ef7;border:none;border-radius:8px;color:#fff;font-size:16px;font-weight:500;cursor:pointer}
+    button:hover{background:#3a7de0}
+    .results{margin-top:1.5rem}
+    .result-item{background:#0f1117;border-radius:8px;padding:1rem;margin-bottom:0.75rem;display:flex;justify-content:space-between;align-items:center}
+    .result-time{font-size:1.3rem;font-weight:600;color:#4f8ef7}
+    .result-cycles{font-size:13px;color:#888}
+    .result-tag{font-size:12px;background:#1e3a5f;color:#4f8ef7;padding:4px 10px;border-radius:20px}
+    .seo-section{max-width:800px;margin:2rem auto;padding:0 1rem;color:#ccc;line-height:1.7}
+    .seo-section h2{font-size:1.4rem;margin-bottom:1rem;color:#fff}
+    .seo-section h3{font-size:1.1rem;margin:1.5rem 0 0.5rem;color:#fff}
+    .seo-section p{margin-bottom:1rem}
+    .seo-section ul{padding-left:1.2rem;margin-bottom:1rem}
+    .seo-section li{margin-bottom:0.5rem}
+    footer{text-align:center;padding:2rem;font-size:12px;color:#bbb;border-top:1px solid #2a2d3a;margin-top:2rem}
+    footer a{color:#4f8ef7;text-decoration:none}
+  </style>
+</head>
+<body>
+<header>
+  <h1>😴 SleepCalc</h1>
+  <a href="/">← Back to Sleep Calculator</a>
+</header>
+<div class="container">
+  <div class="hero">
+    <h2>Bedtime Calculator for Adults</h2>
+    <p>Enter your wake-up time and we'll calculate the best bedtimes based on 90-minute sleep cycles.</p>
+  </div>
+  <div class="card">
+    <label for="wakeup">What time do you need to wake up?</label>
+    <input type="time" id="wakeup" value="07:00">
+    <button onclick="calculate()">Calculate My Bedtime 🌙</button>
+    <div class="results" id="results"></div>
+  </div>
+</div>
+
+<section class="seo-section">
+  <h2>What Time Should I Go to Sleep?</h2>
+  <p>The perfect bedtime depends on when you need to wake up and how many complete 90-minute sleep cycles you want to get. Most adults need 5 to 6 cycles per night — that's 7.5 to 9 hours of sleep. Going to bed at the right time means waking up at the end of a cycle, feeling refreshed instead of groggy.</p>
+
+  <h2>Bedtimes Based on Common Wake-Up Times</h2>
+  <h3>If you need to wake up at 6:00 AM</h3>
+  <p>The ideal bedtimes are 8:46 PM (6 cycles), 10:16 PM (5 cycles), or 11:46 PM (4 cycles). Most adults do best going to bed at 10:16 PM.</p>
+  <h3>If you need to wake up at 7:00 AM</h3>
+  <p>The ideal bedtimes are 9:46 PM (6 cycles), 11:16 PM (5 cycles), or 12:46 AM (4 cycles).</p>
+  <h3>If you need to wake up at 8:00 AM</h3>
+  <p>The ideal bedtimes are 10:46 PM (6 cycles), 12:16 AM (5 cycles), or 1:46 AM (4 cycles).</p>
+
+  <h2>Tips for Sticking to Your Bedtime</h2>
+  <ul>
+    <li><strong>Set a bedtime alarm</strong> — not just a wake-up alarm. A reminder 30 minutes before bedtime helps you wind down.</li>
+    <li><strong>Avoid screens 1 hour before bed</strong> — blue light delays melatonin production and pushes your natural sleep time later.</li>
+    <li><strong>Keep weekends consistent</strong> — sleeping in more than 1 hour on weekends causes "social jet lag" that disrupts your whole week.</li>
+    <li><strong>Create a wind-down routine</strong> — reading, stretching, or a warm shower signals to your brain that sleep is coming.</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+  <h3>What time should I go to bed if I wake up at 6 AM?</h3>
+  <p>To wake up at 6:00 AM feeling refreshed, go to bed at 8:46 PM (9 hours, 6 cycles) or 10:16 PM (7.5 hours, 5 cycles). The 10:16 PM bedtime is the most realistic for most adults.</p>
+  <h3>Is it bad to go to bed after midnight?</h3>
+  <p>Not necessarily — what matters most is getting enough complete sleep cycles and being consistent. However, going to bed very late often cuts into morning sleep cycles, which are the most REM-rich and important for memory and mood.</p>
+  <h3>How do I fall asleep faster at my new bedtime?</h3>
+  <p>Start shifting your bedtime by 15 minutes every few days rather than jumping straight to the new time. Your circadian rhythm adjusts gradually — forcing a sudden change often leads to lying awake frustrated.</p>
+  <h3>Does this calculator work for shift workers?</h3>
+  <p>Yes — just enter whatever your next wake-up time is, regardless of whether it's AM or PM. Sleep cycles work the same way no matter when you sleep.</p>
+</section>
+
+<footer>
+  © 2026 SleepCalc.info — <a href="/">Sleep Calculator</a> · <a href="/privacy.html">Privacy Policy</a>
+</footer>
+
+<script>
+function calculate() {
+  const wakeup = document.getElementById('wakeup').value;
+  if (!wakeup) return;
+  const [h, m] = wakeup.split(':').map(Number);
+  const base = h * 60 + m - 14;
+  const cycles = [6, 5, 4];
+  const labels = ['Optimal rest', 'Recommended', 'Minimum rest'];
+  const tags = ['6 cycles · 9h', '5 cycles · 7.5h', '4 cycles · 6h'];
+  let html = '<p style="color:#888;font-size:13px;margin-bottom:1rem">Best bedtimes for you:</p>';
+  cycles.forEach((c, i) => {
+    let total = (base - c * 90 + 24 * 60) % (24 * 60);
+    const bh = Math.floor(total / 60).toString().padStart(2, '0');
+    const bm = (total % 60).toString().padStart(2, '0');
+    html += `<div class="result-item"><div><div class="result-time">${bh}:${bm}</div><div class="result-cycles">${labels[i]}</div></div><div class="result-tag">${tags[i]}</div></div>`;
+  });
+  document.getElementById('results').innerHTML = html;
+}
+</script>
+</body>
+</html>
