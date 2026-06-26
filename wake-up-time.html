@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://www.sleepcalc.info/wake-up-time.html" />
+  <title>What Time Should I Wake Up? — Sleep Cycle Calculator</title>
+  <meta name="description" content="Find the best time to wake up based on your bedtime and sleep cycles. Free wake-up time calculator using 90-minute sleep cycles.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,sans-serif;background:#0f1117;color:#fff;min-height:100vh}
+    header{background:#1a1d27;border-bottom:1px solid #2a2d3a;padding:14px 24px;display:flex;align-items:center;gap:12px}
+    header h1{font-size:20px;font-weight:500}
+    header a{color:#888;text-decoration:none;font-size:14px;margin-left:auto}
+    header a:hover{color:#fff}
+    .container{max-width:800px;margin:0 auto;padding:2rem 1rem}
+    .hero{text-align:center;margin-bottom:2.5rem}
+    .hero h2{font-size:28px;font-weight:500;margin-bottom:8px}
+    .hero p{font-size:15px;color:#888;line-height:1.6}
+    .card{background:#1a1d27;border-radius:12px;padding:2rem;margin-bottom:2rem}
+    label{font-size:14px;color:#aaa;display:block;margin-bottom:8px}
+    input[type="time"]{width:100%;padding:12px;background:#0f1117;border:1px solid #2a2d3a;border-radius:8px;color:#fff;font-size:16px;margin-bottom:1.5rem}
+    button{width:100%;padding:14px;background:#4f8ef7;border:none;border-radius:8px;color:#fff;font-size:16px;font-weight:500;cursor:pointer}
+    button:hover{background:#3a7de0}
+    .results{margin-top:1.5rem}
+    .result-item{background:#0f1117;border-radius:8px;padding:1rem;margin-bottom:0.75rem;display:flex;justify-content:space-between;align-items:center}
+    .result-time{font-size:1.3rem;font-weight:600;color:#4f8ef7}
+    .result-cycles{font-size:13px;color:#888}
+    .result-tag{font-size:12px;background:#1e3a5f;color:#4f8ef7;padding:4px 10px;border-radius:20px}
+    .seo-section{max-width:800px;margin:2rem auto;padding:0 1rem;color:#ccc;line-height:1.7}
+    .seo-section h2{font-size:1.4rem;margin-bottom:1rem;color:#fff}
+    .seo-section h3{font-size:1.1rem;margin:1.5rem 0 0.5rem;color:#fff}
+    .seo-section p{margin-bottom:1rem}
+    .seo-section ul{padding-left:1.2rem;margin-bottom:1rem}
+    .seo-section li{margin-bottom:0.5rem}
+    footer{text-align:center;padding:2rem;font-size:12px;color:#bbb;border-top:1px solid #2a2d3a;margin-top:2rem}
+    footer a{color:#4f8ef7;text-decoration:none}
+  </style>
+</head>
+<body>
+<header>
+  <h1>😴 SleepCalc</h1>
+  <a href="/">← Back to Sleep Calculator</a>
+</header>
+<div class="container">
+  <div class="hero">
+    <h2>What Time Should I Wake Up?</h2>
+    <p>Enter your bedtime and we'll calculate the best wake-up times based on 90-minute sleep cycles.</p>
+  </div>
+  <div class="card">
+    <label for="bedtime">What time are you going to bed?</label>
+    <input type="time" id="bedtime" value="22:30">
+    <button onclick="calculate()">Calculate Wake-Up Times ⏰</button>
+    <div class="results" id="results"></div>
+  </div>
+</div>
+
+<section class="seo-section">
+  <h2>What Is the Best Time to Wake Up?</h2>
+  <p>The best time to wake up depends on when you fall asleep and how many complete 90-minute sleep cycles you complete. Waking up at the end of a cycle means your body has finished its natural rest phase — so you feel alert and refreshed instead of groggy.</p>
+
+  <h2>How to Use This Wake-Up Time Calculator</h2>
+  <ul>
+    <li><strong>Enter your bedtime</strong> — the time you plan to get into bed.</li>
+    <li><strong>Add 14 minutes</strong> — the average time it takes to fall asleep (already included in our calculation).</li>
+    <li><strong>Choose a wake-up time</strong> that aligns with 5 or 6 complete sleep cycles for the best rest.</li>
+  </ul>
+
+  <h2>Wake-Up Times Based on Common Bedtimes</h2>
+  <h3>If you go to bed at 10:00 PM</h3>
+  <p>The ideal wake-up times are 5:14 AM (6 cycles), 6:44 AM (5 cycles), or 3:44 AM (4 cycles). Most adults do best waking at 5:14 or 6:44 AM.</p>
+  <h3>If you go to bed at 11:00 PM</h3>
+  <p>The ideal wake-up times are 6:14 AM (6 cycles) or 7:44 AM (5 cycles).</p>
+  <h3>If you go to bed at midnight</h3>
+  <p>The ideal wake-up times are 7:14 AM (6 cycles) or 8:44 AM (5 cycles).</p>
+
+  <h2>Frequently Asked Questions</h2>
+  <h3>What time should I wake up if I go to sleep at 10 PM?</h3>
+  <p>If you fall asleep at 10:00 PM, the best wake-up times are 5:14 AM (6 cycles = 9 hours) or 6:44 AM (5 cycles = 7.5 hours).</p>
+  <h3>Is it better to wake up after 6 or 7 hours of sleep?</h3>
+  <p>It depends on your sleep cycles. 7.5 hours (5 cycles) is usually better than 7 hours because 7.5 hours aligns with a complete cycle — meaning you wake up naturally at the end of REM sleep rather than mid-cycle.</p>
+  <h3>What happens if I wake up mid-cycle?</h3>
+  <p>Waking up in the middle of a sleep cycle — especially during deep sleep — causes sleep inertia, that groggy, disoriented feeling that can last up to an hour. Timing your alarm to the end of a cycle eliminates this.</p>
+  <h3>Should I use this calculator every night?</h3>
+  <p>Ideally yes — especially if your bedtime varies. Consistent sleep and wake times are the best foundation for good sleep, but when your schedule shifts, this calculator helps you find the next best option.</p>
+</section>
+
+<footer>
+  © 2026 SleepCalc.info — <a href="/">Sleep Calculator</a> · <a href="/privacy.html">Privacy Policy</a>
+</footer>
+
+<script>
+function calculate() {
+  const bedtime = document.getElementById('bedtime').value;
+  if (!bedtime) return;
+  const [h, m] = bedtime.split(':').map(Number);
+  const base = h * 60 + m + 14;
+  const cycles = [4, 5, 6];
+  const labels = ['Minimum rest', 'Recommended', 'Optimal'];
+  const tags = ['4 cycles · 6h', '5 cycles · 7.5h', '6 cycles · 9h'];
+  let html = '<p style="color:#888;font-size:13px;margin-bottom:1rem">Best times to wake up:</p>';
+  cycles.forEach((c, i) => {
+    const total = (base + c * 90) % (24 * 60);
+    const wh = Math.floor(total / 60).toString().padStart(2, '0');
+    const wm = (total % 60).toString().padStart(2, '0');
+    html += `<div class="result-item"><div><div class="result-time">${wh}:${wm}</div><div class="result-cycles">${labels[i]}</div></div><div class="result-tag">${tags[i]}</div></div>`;
+  });
+  document.getElementById('results').innerHTML = html;
+}
+</script>
+</body>
+</html>
