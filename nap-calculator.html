@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://www.sleepcalc.info/nap-calculator.html" />
+  <title>Nap Calculator — How Long Should I Nap?</title>
+  <meta name="description" content="Find the perfect nap length to wake up refreshed. Free nap calculator based on sleep cycles. Avoid sleep inertia with the right nap duration.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,sans-serif;background:#0f1117;color:#fff;min-height:100vh}
+    header{background:#1a1d27;border-bottom:1px solid #2a2d3a;padding:14px 24px;display:flex;align-items:center;gap:12px}
+    header h1{font-size:20px;font-weight:500}
+    header a{color:#888;text-decoration:none;font-size:14px;margin-left:auto}
+    header a:hover{color:#fff}
+    .container{max-width:800px;margin:0 auto;padding:2rem 1rem}
+    .hero{text-align:center;margin-bottom:2.5rem}
+    .hero h2{font-size:28px;font-weight:500;margin-bottom:8px}
+    .hero p{font-size:15px;color:#888;line-height:1.6}
+    .card{background:#1a1d27;border-radius:12px;padding:2rem;margin-bottom:2rem}
+    label{font-size:14px;color:#aaa;display:block;margin-bottom:8px}
+    input[type="time"]{width:100%;padding:12px;background:#0f1117;border:1px solid #2a2d3a;border-radius:8px;color:#fff;font-size:16px;margin-bottom:1.5rem}
+    .nap-options{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+    .nap-btn{padding:1rem;background:#0f1117;border:2px solid #2a2d3a;border-radius:8px;color:#fff;cursor:pointer;text-align:center;transition:border-color 0.2s}
+    .nap-btn:hover,.nap-btn.active{border-color:#4f8ef7;background:#1e3a5f}
+    .nap-btn .duration{font-size:1.2rem;font-weight:600;color:#4f8ef7}
+    .nap-btn .type{font-size:12px;color:#888;margin-top:4px}
+    button{width:100%;padding:14px;background:#4f8ef7;border:none;border-radius:8px;color:#fff;font-size:16px;font-weight:500;cursor:pointer}
+    button:hover{background:#3a7de0}
+    .result-box{background:#0f1117;border-radius:8px;padding:1.5rem;margin-top:1.5rem;display:none;text-align:center}
+    .result-time{font-size:2rem;font-weight:600;color:#4f8ef7;margin:0.5rem 0}
+    .result-note{font-size:13px;color:#888}
+    .seo-section{max-width:800px;margin:2rem auto;padding:0 1rem;color:#ccc;line-height:1.7}
+    .seo-section h2{font-size:1.4rem;margin-bottom:1rem;color:#fff}
+    .seo-section h3{font-size:1.1rem;margin:1.5rem 0 0.5rem;color:#fff}
+    .seo-section p{margin-bottom:1rem}
+    .seo-section ul{padding-left:1.2rem;margin-bottom:1rem}
+    .seo-section li{margin-bottom:0.5rem}
+    footer{text-align:center;padding:2rem;font-size:12px;color:#bbb;border-top:1px solid #2a2d3a;margin-top:2rem}
+    footer a{color:#4f8ef7;text-decoration:none}
+  </style>
+</head>
+<body>
+<header>
+  <h1>😴 SleepCalc</h1>
+  <a href="/">← Back to Sleep Calculator</a>
+</header>
+<div class="container">
+  <div class="hero">
+    <h2>Nap Calculator</h2>
+    <p>Choose your nap type and find the perfect time to wake up — refreshed, not groggy.</p>
+  </div>
+  <div class="card">
+    <label>What kind of nap do you want?</label>
+    <div class="nap-options">
+      <div class="nap-btn active" onclick="selectNap(this, 20)" >
+        <div class="duration">20 min</div>
+        <div class="type">Power nap</div>
+      </div>
+      <div class="nap-btn" onclick="selectNap(this, 60)">
+        <div class="duration">60 min</div>
+        <div class="type">Deep nap</div>
+      </div>
+      <div class="nap-btn" onclick="selectNap(this, 90)">
+        <div class="duration">90 min</div>
+        <div class="type">Full cycle</div>
+      </div>
+    </div>
+    <label for="napstart">What time are you starting your nap?</label>
+    <input type="time" id="napstart" value="14:00">
+    <button onclick="calculate()">Calculate Wake-Up Time ⏰</button>
+    <div class="result-box" id="result">
+      <div class="result-note">Set your alarm for</div>
+      <div class="result-time" id="wake-result">--:--</div>
+      <div class="result-note" id="nap-note"></div>
+    </div>
+  </div>
+</div>
+
+<section class="seo-section">
+  <h2>How Long Should I Nap?</h2>
+  <p>The ideal nap length depends on what you want to achieve. A 20-minute power nap boosts alertness without entering deep sleep. A 90-minute nap completes a full sleep cycle and supports memory and creativity. Everything in between risks waking you up mid-cycle — the main cause of post-nap grogginess.</p>
+
+  <h2>The 3 Types of Naps</h2>
+  <h3>⚡ The Power Nap — 20 Minutes</h3>
+  <p>The power nap is the most practical option for most people. At 20 minutes, you stay in light sleep (stages 1 and 2), which boosts alertness, mood, and performance without entering deep sleep. You wake up feeling refreshed and ready to go — no grogginess.</p>
+  <p>Best for: a midday energy boost, before driving, before an important meeting or exam.</p>
+
+  <h3>🧠 The Memory Nap — 60 Minutes</h3>
+  <p>A 60-minute nap includes slow-wave deep sleep, which is particularly good for memory consolidation — learning facts, faces, and names. The downside is that you may wake up mid-cycle, causing some grogginess that clears within 15–30 minutes.</p>
+  <p>Best for: after studying or learning new information.</p>
+
+  <h3>🔄 The Full Cycle Nap — 90 Minutes</h3>
+  <p>A 90-minute nap completes one full sleep cycle including REM sleep. This supports creativity, emotional processing, and procedural memory. Because you wake at the end of a cycle, grogginess is minimal — similar to waking from a full night's sleep.</p>
+  <p>Best for: catching up on lost sleep, creative work, or when you have the time.</p>
+
+  <h2>The Best Time to Nap</h2>
+  <p>The ideal nap window for most adults is between 1:00 PM and 3:00 PM — this aligns with the natural post-lunch dip in alertness driven by your circadian rhythm. Napping after 3:00 PM can interfere with your ability to fall asleep at night, especially for a full 90-minute nap.</p>
+
+  <h2>Frequently Asked Questions</h2>
+  <h3>Is a 20-minute nap enough?</h3>
+  <p>Yes — for most people, a 20-minute power nap is the most effective option. It boosts alertness and performance for 2–3 hours without causing grogginess or disrupting nighttime sleep.</p>
+  <h3>Why do I feel worse after a nap?</h3>
+  <p>Feeling groggy after a nap — known as sleep inertia — happens when you wake up mid-cycle, typically during deep sleep. This is most common after 30–60 minute naps. Stick to 20 minutes or 90 minutes to avoid it.</p>
+  <h3>Can napping make up for lost sleep?</h3>
+  <p>A nap can partially restore alertness and performance after a poor night's sleep, but it doesn't fully replace the benefits of a complete night's rest — especially the REM sleep that occurs in the later cycles of the night.</p>
+  <h3>Is napping bad for you?</h3>
+  <p>No — regular short naps are associated with improved cardiovascular health, better mood, and enhanced cognitive performance. The key is timing and duration. Napping too long or too late in the day can disrupt nighttime sleep.</p>
+  <h3>What is a NASA nap?</h3>
+  <p>The NASA nap — famously studied by NASA researchers — is a 26-minute nap that improved pilot performance by 34% and alertness by 100%. It's essentially a power nap with a small buffer to account for falling asleep time.</p>
+</section>
+
+<footer>
+  © 2026 SleepCalc.info — <a href="/">Sleep Calculator</a> · <a href="/bedtime-calculator.html">Bedtime Calculator</a> · <a href="/wake-up-time.html">Wake-Up Time</a> · <a href="/how-many-hours-of-sleep.html">How Many Hours</a> · <a href="/sleep-calculator-for-kids.html">Kids Sleep</a> · <a href="/privacy.html">Privacy Policy</a>
+</footer>
+
+<script>
+let selectedNap = 20;
+function selectNap(el, mins) {
+  document.querySelectorAll('.nap-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  selectedNap = mins;
+}
+function calculate() {
+  const napstart = document.getElementById('napstart').value;
+  if (!napstart) return;
+  const [h, m] = napstart.split(':').map(Number);
+  const total = (h * 60 + m + selectedNap) % (24 * 60);
+  const wh = Math.floor(total / 60).toString().padStart(2, '0');
+  const wm = (total % 60).toString().padStart(2, '0');
+  const notes = {
+    20: 'Power nap — wake up alert and ready to go!',
+    60: 'Deep nap — allow 15 min to fully wake up.',
+    90: 'Full cycle — you\'ll wake up feeling refreshed.'
+  };
+  document.getElementById('wake-result').textContent = `${wh}:${wm}`;
+  document.getElementById('nap-note').textContent = notes[selectedNap];
+  document.getElementById('result').style.display = 'block';
+}
+</script>
+</body>
+</html>
