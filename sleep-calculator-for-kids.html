@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://www.sleepcalc.info/sleep-calculator-for-kids.html" />
+  <title>Sleep Calculator for Kids — Bedtime by Age Chart</title>
+  <meta name="description" content="Free sleep calculator for kids. Find the perfect bedtime for your child based on their age and wake-up time. Includes bedtime chart for ages 1–13.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,sans-serif;background:#0f1117;color:#fff;min-height:100vh}
+    header{background:#1a1d27;border-bottom:1px solid #2a2d3a;padding:14px 24px;display:flex;align-items:center;gap:12px}
+    header h1{font-size:20px;font-weight:500}
+    header a{color:#888;text-decoration:none;font-size:14px;margin-left:auto}
+    header a:hover{color:#fff}
+    .container{max-width:800px;margin:0 auto;padding:2rem 1rem}
+    .hero{text-align:center;margin-bottom:2.5rem}
+    .hero h2{font-size:28px;font-weight:500;margin-bottom:8px}
+    .hero p{font-size:15px;color:#888;line-height:1.6}
+    .card{background:#1a1d27;border-radius:12px;padding:2rem;margin-bottom:2rem}
+    label{font-size:14px;color:#aaa;display:block;margin-bottom:8px}
+    select,input[type="time"]{width:100%;padding:12px;background:#0f1117;border:1px solid #2a2d3a;border-radius:8px;color:#fff;font-size:16px;margin-bottom:1.5rem}
+    button{width:100%;padding:14px;background:#4f8ef7;border:none;border-radius:8px;color:#fff;font-size:16px;font-weight:500;cursor:pointer}
+    button:hover{background:#3a7de0}
+    .result-box{background:#0f1117;border-radius:8px;padding:1.5rem;margin-top:1.5rem;display:none;text-align:center}
+    .result-time{font-size:2rem;font-weight:600;color:#4f8ef7;margin:0.5rem 0}
+    .result-note{font-size:13px;color:#888}
+    .age-table{width:100%;border-collapse:collapse;margin-top:1rem}
+    .age-table th{background:#0f1117;padding:12px;text-align:left;font-size:13px;color:#888;border-bottom:1px solid #2a2d3a}
+    .age-table td{padding:12px;border-bottom:1px solid #1a1d27;font-size:14px}
+    .age-table tr:hover td{background:#1a1d27}
+    .bedtime{color:#4f8ef7;font-weight:600}
+    .seo-section{max-width:800px;margin:2rem auto;padding:0 1rem;color:#ccc;line-height:1.7}
+    .seo-section h2{font-size:1.4rem;margin-bottom:1rem;color:#fff}
+    .seo-section h3{font-size:1.1rem;margin:1.5rem 0 0.5rem;color:#fff}
+    .seo-section p{margin-bottom:1rem}
+    .seo-section ul{padding-left:1.2rem;margin-bottom:1rem}
+    .seo-section li{margin-bottom:0.5rem}
+    footer{text-align:center;padding:2rem;font-size:12px;color:#bbb;border-top:1px solid #2a2d3a;margin-top:2rem}
+    footer a{color:#4f8ef7;text-decoration:none}
+  </style>
+</head>
+<body>
+<header>
+  <h1>😴 SleepCalc</h1>
+  <a href="/">← Back to Sleep Calculator</a>
+</header>
+<div class="container">
+  <div class="hero">
+    <h2>Sleep Calculator for Kids</h2>
+    <p>Find the perfect bedtime for your child based on their age and wake-up time.</p>
+  </div>
+  <div class="card">
+    <label for="age">How old is your child?</label>
+    <select id="age">
+      <option value="1">1 year old</option>
+      <option value="2">2 years old</option>
+      <option value="3">3 years old</option>
+      <option value="4">4 years old</option>
+      <option value="5" selected>5 years old</option>
+      <option value="6">6 years old</option>
+      <option value="7">7 years old</option>
+      <option value="8">8 years old</option>
+      <option value="9">9 years old</option>
+      <option value="10">10 years old</option>
+      <option value="11">11 years old</option>
+      <option value="12">12 years old</option>
+      <option value="13">13 years old</option>
+    </select>
+    <label for="wakeup">Wake-up time</label>
+    <input type="time" id="wakeup" value="07:00">
+    <button onclick="calculate()">Find Bedtime 🌙</button>
+    <div class="result-box" id="result">
+      <div class="result-note">Recommended bedtime</div>
+      <div class="result-time" id="bedtime-result">--:--</div>
+      <div class="result-note" id="hours-result"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-bottom:1rem;font-size:1.1rem">Bedtime Chart by Age (7:00 AM wake-up)</h3>
+    <table class="age-table">
+      <thead>
+        <tr>
+          <th>Age</th>
+          <th>Sleep Needed</th>
+          <th>Bedtime (7 AM wake-up)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1–2 years</td><td>11–14 hours</td><td class="bedtime">5:00 PM – 8:00 PM</td></tr>
+        <tr><td>3–5 years</td><td>10–13 hours</td><td class="bedtime">6:00 PM – 9:00 PM</td></tr>
+        <tr><td>6–7 years</td><td>10–11 hours</td><td class="bedtime">7:45 PM – 9:00 PM</td></tr>
+        <tr><td>8–9 years</td><td>10 hours</td><td class="bedtime">8:45 PM – 9:00 PM</td></tr>
+        <tr><td>10–11 years</td><td>9–10 hours</td><td class="bedtime">9:00 PM – 10:00 PM</td></tr>
+        <tr><td>12–13 years</td><td>8–9 hours</td><td class="bedtime">9:45 PM – 11:00 PM</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<section class="seo-section">
+  <h2>What Time Should Kids Go to Bed?</h2>
+  <p>Children need significantly more sleep than adults. The exact bedtime depends on your child's age and what time they need to wake up — for school, activities, or family routine. Our sleep calculator for kids takes both into account and gives you a precise recommended bedtime.</p>
+
+  <h2>Why Sleep Is So Important for Children</h2>
+  <ul>
+    <li><strong>Brain development</strong> — sleep is when the brain consolidates learning and forms new neural connections.</li>
+    <li><strong>Physical growth</strong> — growth hormone is released primarily during deep sleep.</li>
+    <li><strong>Emotional regulation</strong> — sleep-deprived children are more prone to tantrums, anxiety, and difficulty managing emotions.</li>
+    <li><strong>Immune system</strong> — adequate sleep strengthens the immune response in children.</li>
+    <li><strong>Attention and behavior</strong> — sleep-deprived children often appear hyperactive rather than tired, which can be mistaken for ADHD.</li>
+  </ul>
+
+  <h2>Tips for Getting Kids to Bed on Time</h2>
+  <ul>
+    <li><strong>Start the routine early</strong> — begin winding down 45–60 minutes before lights out.</li>
+    <li><strong>No screens before bed</strong> — blue light suppresses melatonin in children even more than adults.</li>
+    <li><strong>Keep it consistent</strong> — the same bedtime every night (including weekends) regulates the body clock.</li>
+    <li><strong>Make the room dark and cool</strong> — children sleep better in a slightly cool, dark room.</li>
+    <li><strong>Use a calming routine</strong> — bath, story, soft music — predictable steps signal that sleep is coming.</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+  <h3>What time should a 5-year-old go to bed?</h3>
+  <p>A 5-year-old who wakes up at 7:00 AM should go to bed between 6:45 PM and 8:00 PM to get the recommended 11–13 hours of sleep. Most kindergarten-aged children do best with a 7:00–7:30 PM bedtime.</p>
+  <h3>What time should a 10-year-old go to bed?</h3>
+  <p>A 10-year-old who wakes up at 7:00 AM for school should go to bed between 8:45 PM and 9:15 PM to get 9–10 hours of sleep.</p>
+  <h3>What time should a 13-year-old go to bed?</h3>
+  <p>A 13-year-old who wakes up at 7:00 AM needs 8–9 hours of sleep, so bedtime should be between 9:45 PM and 10:45 PM. Teenagers' circadian rhythms naturally shift later, making early bedtimes increasingly difficult.</p>
+  <h3>How do I know if my child is getting enough sleep?</h3>
+  <p>A well-rested child wakes up naturally or with minimal prompting, is alert and in a good mood during the day, and doesn't fall asleep in the car or during quiet activities. Consistent difficulty waking up is a clear sign of insufficient sleep.</p>
+</section>
+
+<footer>
+  © 2026 SleepCalc.info — <a href="/">Sleep Calculator</a> · <a href="/bedtime-calculator.html">Bedtime Calculator</a> · <a href="/wake-up-time.html">Wake-Up Time</a> · <a href="/how-many-hours-of-sleep.html">How Many Hours</a> · <a href="/privacy.html">Privacy Policy</a>
+</footer>
+
+<script>
+function calculate() {
+  const age = parseInt(document.getElementById('age').value);
+  const wakeup = document.getElementById('wakeup').value;
+  if (!wakeup) return;
+  const [h, m] = wakeup.split(':').map(Number);
+  const wakeMinutes = h * 60 + m;
+  let hoursNeeded;
+  if (age <= 2) hoursNeeded = 12;
+  else if (age <= 5) hoursNeeded = 11;
+  else if (age <= 9) hoursNeeded = 10;
+  else if (age <= 11) hoursNeeded = 9.5;
+  else hoursNeeded = 9;
+  const bedMinutes = (wakeMinutes - hoursNeeded * 60 + 24 * 60) % (24 * 60);
+  const bh = Math.floor(bedMinutes / 60).toString().padStart(2, '0');
+  const bm = (bedMinutes % 60).toString().padStart(2, '0');
+  document.getElementById('bedtime-result').textContent = `${bh}:${bm}`;
+  document.getElementById('hours-result').textContent = `${hoursNeeded} hours of sleep for a ${age}-year-old`;
+  document.getElementById('result').style.display = 'block';
+}
+</script>
+</body>
+</html>
